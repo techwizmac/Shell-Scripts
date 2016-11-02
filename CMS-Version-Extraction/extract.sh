@@ -10,11 +10,11 @@ set -x  # debugging starts
 # Empty result file in case anything was left from prior run
 truncate -s 0 CMS-Report
 
-# Extract header info from each website-list using WhatWeb utility and
-# dump CMS version info only on temp file 'cms-results'
+ and
+# extract header info from each website-list using WhatWeb utility
 for item in $(ls ./WEBSITES/);
-  do whatweb -v -i ./WEBSITES/$item >>results-$item;
-  cat results-$item|grep -e "\s*\+String \+: \+.\+$item" -e "\s*\+IP" -e report >>CMS-Report
+  do whatweb -v -i ./WEBSITES/$item >>results-$item; # dump extraction on temp file
+  cat results-$item|grep -e "\s*\+String \+: \+.\+$item" -e "\s*\+IP" -e report >>CMS-Report # dump CMS version info only on file 'CMS-Report'
 done
 
 #Beautify text

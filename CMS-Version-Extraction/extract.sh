@@ -10,7 +10,6 @@ set -x  # debugging starts
 # Empty result file in case anything was left from prior run
 truncate -s 0 CMS-Report
 
- and
 # extract header info from each website-list using WhatWeb utility
 for item in $(ls ./WEBSITES/);
   do whatweb -v -i ./WEBSITES/$item >>results-$item; # dump extraction on temp file

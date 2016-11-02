@@ -3,7 +3,7 @@ CMS Version Extraction and Listing
 
 This is a very crude first attempt at extracting CMS version information from a list of websites.
 
-Often times and for tracking purposes, it is useful to keep track of how website owners keep up with CMS versions in order to stay secure and up to date.
+Often times and for reporting purposes, it is useful to keep track of how website owners keep up with CMS versions in order to stay secure and up to date.
 Static Web Scanners do not provide an easy mechanism to gather this information and compile it together for easy viewing. On the other hand there are a number of fingerprinting tools out there that extract HTTP header information which can be visualized within a browser in the form of plugins and extensions depending on the browser flavour. I use a header information extraction tool called Whatweb to routinely extract header information manually. This tool can provide brief and verbose results. What I try to do with this simple script is to extract in CMS versions in bulk and aggregate the information for quicker and practical viewing.
 Further improvements coming soon.
 

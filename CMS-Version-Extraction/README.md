@@ -27,3 +27,17 @@ Notes
 24/10/2016: Created a new repo to host the preliminary instance of this script.
 
 
+UPDATES
+=======
+
+Preliminary version:
+Extractions done using basic, unrefined logic. It was using mostly sequencial processing with no If-Then loops.  
+
+Improved version:
+Introduced use of If-then loops and extraction of data becomes more refined.
+
+Current version:
+better If-Then loops and refinements to improve catching rate. Improved cosmetics and overall look.
+
+further improvements to come:
+a choice of a regular flat text file or an HTML version.

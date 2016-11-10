@@ -34,10 +34,10 @@ Preliminary version:
 Extractions done using basic, unrefined logic. It was using mostly sequencial processing with no If-Then loops.  
 
 Improved version:
-Introduced use of If-then loops and extraction of data becomes more refined.
+Added use of If-then loops to make extraction of data more refined.
 
 Current version:
 better If-Then loops and refinements to improve catching rate. Improved cosmetics and overall look.
+Added a menu to choose from a regular flat text report  or an HTML based report.
 
-further improvements to come:
-a choice of a regular flat text file or an HTML version.
+

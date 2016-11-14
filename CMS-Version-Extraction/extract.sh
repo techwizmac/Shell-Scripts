@@ -44,7 +44,7 @@ while [ opt != '' ]
  1) clear;
  Selection "Generating Flat Text Based Report..\n\n";
 # Insert Headings
-echo 'CMS Websites McMaster University\n' >>CMS-Report-Txt
+echo 'CMS Websites [Organization-Name]\n' >>CMS-Report-Txt
 echo $(date) >>CMS-Report-Txt
 echo '\nBy-Weekly Report of CMS Based Websites\n' >>CMS-Report-Txt
 echo '\033[31mred\033[0m=outdated (see list of Vulns per version below list)' >>CMS-Report-Txt
@@ -114,7 +114,7 @@ done
  2) clear;
 Selection "Generating HTML Based Report..\n\n";
 # Insert HTML Headings
-echo '<html>\n<head>\n<title>CMS Websites McMaster University</title>\n' >>CMS-Report-Web
+echo '<html>\n<head>\n<title>CMS Websites  [Organization-Name]</title>\n' >>CMS-Report-Web
 echo '<style>\ndiv.boxed {\nborder: 3px solid red;\nwidth: 900px;\nmargin-left: left;\nmargin-right: auto;\nbackground-color: lightgrey;}\n</style>\n</head>\n<body>\n<p>' >>CMS-Report-Web
 echo '<div class="boxed">\n<h4>'$(date)'</h4>' >>CMS-Report-Web
 echo "<h2>By-Weekly Report of CMS Based Websites</h2>" >>CMS-Report-Web

@@ -44,7 +44,7 @@ while [ opt != '' ]
  1) clear;
  Selection "Generating Flat Text Based Report..\n\n";
 # Insert Headings
-echo 'CMS-Based Websites Version Extraction\n' >>CMS-Report-Txt
+echo 'CMS Websites McMaster University\n' >>CMS-Report-Txt
 echo $(date) >>CMS-Report-Txt
 echo '\nBy-Weekly Report of CMS Based Websites\n' >>CMS-Report-Txt
 echo '\033[31mred\033[0m=outdated (see list of Vulns per version below list)' >>CMS-Report-Txt
@@ -72,6 +72,10 @@ sed -i 's/Version      : / MetaGenerator: Drupal /g' CMS-Report-Txt
 sed -i 's/String       : /MetaGenerator: /g' CMS-Report-Txt
 sed -i 's/Powered by Visual Composer - drag and drop page builder for WordPress.,//g' CMS-Report-Txt
 sed -i 's/- Open Source Content Management//g' CMS-Report-Txt
+sed -i 's/drag and drop page//g' CMS-Report-Txt
+sed -i 's/Powered by //g' CMS-Report-Txt
+sed -i 's/Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider//g' CMS-Report-Txt
+sed -i 's/MetaGenerator: WordPress,WordPress,/ /g' CMS-Report-Txt
 
 # Change text colour for outdated versions
 sed -i ''/'WordPress 3.1.2'/s//`printf "\033[31mWordPress_3.1.2\033[0m"`/'' CMS-Report-Txt
@@ -110,7 +114,7 @@ done
  2) clear;
 Selection "Generating HTML Based Report..\n\n";
 # Insert HTML Headings
-echo '<html>\n<head>\n<title>CMS-Based Websites Version Extraction</title>\n' >>CMS-Report-Web
+echo '<html>\n<head>\n<title>CMS Websites McMaster University</title>\n' >>CMS-Report-Web
 echo '<style>\ndiv.boxed {\nborder: 3px solid red;\nwidth: 900px;\nmargin-left: left;\nmargin-right: auto;\nbackground-color: lightgrey;}\n</style>\n</head>\n<body>\n<p>' >>CMS-Report-Web
 echo '<div class="boxed">\n<h4>'$(date)'</h4>' >>CMS-Report-Web
 echo "<h2>By-Weekly Report of CMS Based Websites</h2>" >>CMS-Report-Web
@@ -164,8 +168,12 @@ sed -i 's/WhatWeb report for /\n<td>/g' CMS-Report-Web
 sed -i 's/IP        : /<\/td><td>IP:/g' CMS-Report-Web
 sed -i 's/Version      : /<\/td><td>MetaGenerator: Drupal /g' CMS-Report-Web
 sed -i 's/String       : /<\/td><td>MetaGenerator: /g' CMS-Report-Web
-sed -i 's/Powered by Visual Composer - drag and drop page builder for WordPress.,//g' CMS-Report-Web
+sed -i 's/Powered by Visual Composer - drag and drop page builder for WordPress.,/ /g' CMS-Report-Web
+sed -i 's/Powered by //g' CMS-Report-Web
 sed -i 's/- Open Source Content Management//g' CMS-Report-Web
+sed -i 's/drag and drop page//g' CMS-Report-Web
+sed -i 's/Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider//g' CMS-Report-Web
+sed -i 's/MetaGenerator: WordPress,WordPress,/ /g' CMS-Report-Web
 sed -i 's/\\[1m\\[34m//g' CMS-Report-Web
 sed -i 's/\\[1m\\[32m//g' CMS-Report-Web
 sed -i 's/\\[1m\\[36m//g' CMS-Report-Web

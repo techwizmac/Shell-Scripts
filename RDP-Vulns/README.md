@@ -1,21 +1,24 @@
 RDP Vulnerabilities Enumeration & Reporting
 -------------------------------------------
 
-Small script to leverage results from http://labs.portcullis.co.uk/application/rdp-sec-check/
+Small script to leverage results from an RDP security check tool.
 Tthis script is an early state.
 
 Requirements
 =============
 You need to have the rdp-sec-check utility on the system prior to using this script.
 
-rdp-sec-check: http://labs.portcullis.co.uk/application/rdp-sec-check/
+1) rdp-sec-check: http://labs.portcullis.co.uk/application/rdp-sec-check/
+               Credits: Written by Porticullis Computer Security Ltd
+2) Encoding::BER module from Perl CPAN
 
-Credits: Written by urbanadventurer aka Andrew Horton and Brendan Coles
+3) List/s of IPs that you know are vulnerable and have an interest in tracking.
+   (I provide a test sample)
+
 
 License: GPLv2
 
-You also need precreated a list/s of IPs that you know are vulnerable and have an interest in tracking.
-I provide a sample of these.
+
 
 Notes
 =====

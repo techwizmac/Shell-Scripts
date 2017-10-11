@@ -25,7 +25,8 @@ Menu(){
     echo "${MENU}${NUMBER}6 ${MENU}--> SSH-AUDIT ${NORMAL}"
     echo "${MENU}${NUMBER}7 ${MENU}--> RDP-SEC-CHECK ${NORMAL}"
     echo "${MENU}${NUMBER}8 ${MENU}--> TESTSSL ${NORMAL}"
-    echo "${MENU}${NUMBER}9 ${MENU}--> Exit ${NORMAL}"
+    echo "${MENU}${NUMBER}9 ${MENU}--> RUN ALL TESTS ${NORMAL}"
+    echo "${MENU}${NUMBER}0 ${MENU}--> Exit ${NORMAL}"
 
     echo "${MENU}**********************************${NORMAL}"
     echo "${ENTER_LINE}Select a menu option and enter"
@@ -119,7 +120,38 @@ Menu;
 Menu;
 ;;
 
-9) clear;
+
+# RUN ALL TESTS
+ 9) clear;
+   http --pretty all --verbose --output Scan-Report $(cat host)
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   whatweb -a3 -v -i $(cat host) >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   sudo hping3 -8 80,443 -S $(cat host) -V >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   sudo nmap -A -T4 -sSV --version-intensity 9 --script banner $(cat host) -Pn -O -vvv -dd >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   sudo nmap -p 80,443 $(cat host) -oG -|~/Documents/TOOLS/Web-Tools/Nikto216/program/nikto.pl -h - -C all >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   ssh-audit -v $(cat host) >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   rdpcheck $(cat host):3389 >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   testssl $(cat host) >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+# clear
+Menu;
+;;
+
+0) clear;
  Selection "Exit";
  exit;
  ;;

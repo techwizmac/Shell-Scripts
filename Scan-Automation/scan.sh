@@ -8,7 +8,14 @@
 
 #set -x  # debugging starts
 
-truncate -s 0 Scan-Report
+while true; do
+    read -p "Clean Report File?" yn
+    case $yn in
+        [Yy]* ) truncate -s 0 Scan-Report; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 clear
 Menu(){
@@ -52,7 +59,7 @@ else
 
 #  HTTPIE
  1) clear;
-   http --pretty all --verbose --output Scan-Report $(cat host)
+   http --pretty all --verbose --output Scan-Report $(cat web)
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
 # clear
@@ -61,7 +68,7 @@ else
 
 # WHATWEB
  2) clear;
-   whatweb -a3 -v -i $(cat host) >>Scan-Report
+   whatweb -a3 -v $(cat web) >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
    clear
@@ -78,7 +85,7 @@ Menu;
 
 # HPING 80,443
  4) clear;
-   sudo hping3 -8 80,443 -S $(cat host) -V >>Scan-Report
+   sudo hping3 -8 80,443 -S $(cat web) -V >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
    clear
@@ -150,13 +157,13 @@ Menu;
 
 # RUN ALL TESTS
  12) clear;
-   http --pretty all --verbose --output Scan-Report $(cat host)
+   http --pretty all --verbose --output Scan-Report $(cat web)
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
-   whatweb -a3 -v -i $(cat host) >>Scan-Report
+   whatweb -a3 -v $(cat web) >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
-   wafw00f -v -a --findall $(cat host) >>Scan-Report
+   wafw00f -v -a --findall $(cat web) >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
    sudo hping3 -8 80,443 -S $(cat host) -V >>Scan-Report

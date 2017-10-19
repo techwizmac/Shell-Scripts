@@ -33,9 +33,10 @@ Menu(){
     echo "${MENU}${NUMBER}7 ${MENU}--> SSH-AUDIT 1.7.0${NORMAL}"
     echo "${MENU}${NUMBER}8 ${MENU}--> RDP-SEC-CHECK 0.8 Beta${NORMAL}"
     echo "${MENU}${NUMBER}9 ${MENU}--> TESTSSL 2.8 RC1${NORMAL}"
-    echo "${MENU}${NUMBER}10 ${MENU}--> SSL SCAN 1.8.2${NORMAL}"
-    echo "${MENU}${NUMBER}11 ${MENU}--> OPEN SSL 1.0.1f${NORMAL}"
-    echo "${MENU}${NUMBER}12 ${MENU}--> RUN ALL TESTS ${NORMAL}"
+    echo "${MENU}${NUMBER}10 ${MENU}--> TESTSSL 2.9.5${NORMAL}"
+    echo "${MENU}${NUMBER}11 ${MENU}--> SSL SCAN 1.8.2${NORMAL}"
+    echo "${MENU}${NUMBER}12 ${MENU}--> OPEN SSL 1.0.1f${NORMAL}"
+    echo "${MENU}${NUMBER}13 ${MENU}--> RUN ALL TESTS ${NORMAL}"
     echo "${MENU}${NUMBER}0 ${MENU}--> Exit ${NORMAL}"
     echo "${MENU}**********************************${NORMAL}"
     echo "${ENTER_LINE}Select a menu option and enter"
@@ -128,9 +129,18 @@ Menu;
 Menu;
 ;;
 
-# TESTSSL
+# TESTSSL 2.8 RC1
  9) clear;
-   testssl $(cat host) >>Scan-Report
+   testssl28 $(cat host) >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+# clear
+Menu;
+;;
+
+# TESTSSL 2.9.5
+ 10) clear;
+   testssl295 $(cat host) >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
 # clear
@@ -138,7 +148,7 @@ Menu;
 ;;
 
 #  SSLSCAN
- 10) clear;
+ 11) clear;
    sslscan $(cat host) >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
@@ -147,7 +157,7 @@ Menu;
 ;;
 
 # OPENSSL
- 11) clear;
+ 12) clear;
    openssl s_client -connect $(cat host):443 -showcerts >>Scan-Report-openssl
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
@@ -156,7 +166,7 @@ Menu;
 ;;
 
 # RUN ALL TESTS
- 12) clear;
+ 13) clear;
    http --pretty all --verbose --output Scan-Report $(cat web)
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
@@ -181,7 +191,10 @@ Menu;
    rdpcheck $(cat host):3389 >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
-   testssl $(cat host) >>Scan-Report
+   testssl28 $(cat host) >>Scan-Report
+   echo '\n' >>Scan-Report
+   echo '\n' >>Scan-Report
+   testssl295 $(cat host) >>Scan-Report
    echo '\n' >>Scan-Report
    echo '\n' >>Scan-Report
    sslscan $(cat host) >>Scan-Report
